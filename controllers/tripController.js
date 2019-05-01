@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the tripontroller
+// Defining methods for the tripController
 module.exports = {
   findAll: function(req, res) {
     db.Trip
