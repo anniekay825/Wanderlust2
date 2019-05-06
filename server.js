@@ -48,7 +48,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Connect app to mongo db
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/wanderlust2";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 const db = mongoose.connection;

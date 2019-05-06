@@ -1,11 +1,11 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api-routes");
-const authorRoutes = require("./author-routes");
+const authRoutes = require("./authRoutes");
 
 
 router.use("/api", apiRoutes);
-router.use("/author", authorRoutes);
+router.use("/auth", authRoutes);
 
 
 router.use(function(req, res) {
