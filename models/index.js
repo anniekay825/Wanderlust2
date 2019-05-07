@@ -1,8 +1,8 @@
 // Exporting an object containing all of our models
 
 module.exports = {
-  Message: require("./Message"),
-  Post: require("./Post"),
+  tripList: require("./tripList"),
+  Trip: require("./Trip"),
   User: require("./User")
 };
 

@@ -27,6 +27,7 @@
     "env": "0.0.2",
     "express": "^4.16.3",
     "express-session": "^1.16.1",
+    "heroku": "^7.24.3",
     "if-env": "^1.0.4",
     "mdbreact": "^4.13.0",
     "mongo": "^0.1.0",
