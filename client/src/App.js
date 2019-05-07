@@ -13,7 +13,7 @@ class App extends Component {
             <li><a href="#" title="home"><i class="material-icons">home</i></a></li>
             <li><a href="#" title="maps"><i class="material-icons">explore</i></a></li>
             <li><a href="#" title="weather"><i class="material-icons">beach_access</i></a></li>
-            <li><a href="#" title="my account"><i class="material-icons">account_circle</i></a></li>
+            <li><a href="../components/signin.html" title="my account"><i class="material-icons">account_circle</i></a></li>
           </ul>
         </div>
       </nav>
@@ -30,7 +30,7 @@ class App extends Component {
           </div>
           <div class="row center">
             <a href="#LearnMore" id="download-button" class="btn-large waves-effect waves-light teal lighten-3">Learn More</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#signup" id="download-button" class="btn-large waves-effect waves-light teal lighten-2">Sign-Up</a>
+            <a href="../components/signup.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-2">Sign-Up</a>
           </div>
         </div>
       </div> 
@@ -137,7 +137,7 @@ class App extends Component {
               <div class="col l6 s12">
                 <h4>Site Contents</h4>
                 <p class="text-lighten-4">Wänderlust is built using React, Express, Node, MongoDB, Materialize, and Axios.  </p>
-                <p><a href="https://github.com/ATATE13/Wanderlust_2.0" target="_blank"><img id="github" src="../images/PNG/GitHub-Mark-64px.png"></img></a></p>
+                <p><a href="https://github.com/anniekay825/Wanderlust2" target="_blank"><img id="github" src="../images/PNG/GitHub-Mark-64px.png"></img></a></p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h4>Links</h4>

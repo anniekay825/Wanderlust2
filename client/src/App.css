@@ -9,6 +9,21 @@ body {
   background-color: transparent;
 }
 
+.containerForm {
+  width: 60%;
+  max-width: 960;
+  margin: 0 auto;
+  clear: both;
+  margin-top: -175px;
+  background-color: whitesmoke;
+}
+
+#signup {
+  float: right;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
 #index-banner {
   font-family: 'Slackey', cursive;
   padding: 10px;
