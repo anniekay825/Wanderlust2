@@ -1,4 +1,4 @@
-# ![Image of logo](images/favicon.png)Wanderlust2 | /ˈwändərˌləst/
+# ![Image of logo](client/public/images/favicon.png)Wanderlust2 | /ˈwändərˌləst/
 
 An app to explore potential destinations and to take a virtual vacation. You can explore language, currency, current weather, and view location and flights about your country of interest.
 

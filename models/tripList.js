@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const tripListSchema = new Schema({
   userId: {
     type: String,
     trim: true,
@@ -12,31 +12,22 @@ const PostSchema = new Schema({
     trim: true,
     required: "Username is required",
   },
-  title: {
+  tripListName: {
     type: String,
     trim: true,
-    required: "Post title is required.",
-  },
-  content: {
-    type: String,
-    trim: true,
-    required: "Post cannot be empty.",
+    required: "tripName title required.",
   },
   location: {
     type: String,
     trim: true,
     required: "A location is required",
   },
-  category: {
-    type: String,
-    trim: true,
-    default: "General",
-  },
   createdAt: {
     type: Date,
     default: Date.now,
-  },
+  }
 });
 
-const Post = mongoose.model("Post", PostSchema);
-module.exports = Post;
+const tripList = mongoose.model("tripList", tripListSchema);
+
+module.exports = tripList;

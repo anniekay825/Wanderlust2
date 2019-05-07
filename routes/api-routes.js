@@ -1,6 +1,6 @@
 const User = require("../models/User");
-const Post = require("../models/Post");
-const Message = require("../models/Message");
+const Trip = require("../models/Trip");
+// const tripList = require("../models/tripList");
 const bcrypt = require("bcrypt");
 
 module.exports = function(app) {
@@ -168,7 +168,7 @@ module.exports = function(app) {
       return;
     }
     // If signed in, create new post with req data
-    Post.create(req.body, function(err, post) {
+    Trip.create(req.body, function(err, post) {
       if (err) {
         console.log(err);
       } else {
@@ -188,7 +188,7 @@ module.exports = function(app) {
     }
   });
   // * Gets the last 10 posts from the db if the user is signed in
-  app.get("/api/posts/:number/:location", function(req, res) {
+  app.get("/api/trips/:number/:location", function(req, res) {
     // Checks for session, if none, return 401
     const n = Number(req.params.number);
     const l = req.params.location;
@@ -198,95 +198,94 @@ module.exports = function(app) {
       return;
     } else {
       // If signed in, return last 10 posts
-      const find = Post.find({ location: l })
+      const find = Trip.find({ location: l })
         .sort({ createdAt: -1 })
         .limit(n);
-      find.exec(function(err, posts) {
+      find.exec(function(err, trips) {
         if (err) {
           console.log(err);
         }
-        res.send(JSON.stringify(posts));
+        res.send(JSON.stringify(trips));
       });
     }
   });
-  // *Creates a new message
-  app.post("/api/messages", function(req, res) {
-    // Assigning request body to a pre built object to interface with mongoose
-    const newMessage = {
-      senderId: req.body.senderId,
-      senderName: req.body.senderName,
-      recipientId: req.body.recipientId,
-      recipientName: req.body.recipientName,
-      subject: req.body.subject,
-      content: req.body.content,
-    };
-    console.log(newMessage);
-    // Mongoose message creation
-    Message.create(newMessage, function(err, post) {
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-      } else {
-        const messageId = post._id;
-        // Finds sender and adds messageId to their object
-        User.findOneAndUpdate(
-          {
-            _id: newMessage.senderId,
-          },
-          { $push: { messages: messageId } },
-          function(err) {
-            if (err) {
-              res.sendStatus(500);
-              console.log(err);
-            } else {
-              // Finds recipient and adds messageId to their object
-              User.findOneAndUpdate(
-                {
-                  _id: newMessage.recipientId,
-                },
-                { $push: { messages: messageId } },
-                function(err) {
-                  if (err) {
-                    res.sendStatus(500);
-                    console.log(err);
-                  } else {
-                    console.log("Message successfully added!");
-                    res.sendStatus(200);
-                  }
-                }
-              );
-            }
-          }
-        );
-      }
-    });
-  });
-  // *Finds all recieved messages by id
-  app.get("/api/messages/inbox/:id", function(req, res) {
-    const user = req.params.id;
-    const find = Message.find({ recipientId: user }).sort({ createdAt: -1 });
-    find.exec(function(err, messages) {
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-      } else {
-        console.log("Received request for inbox.");
-        console.log(messages);
-        res.send(JSON.stringify(messages));
-      }
-    });
-  });
-  // *Finds all sent messages by id
-  app.get("/api/messages/outbox/:id", function(req, res) {
-    const user = req.params.id;
-    const find = Message.find({ senderId: user }).sort({ createdAt: -1 });
-    find.exec(function(err, messages) {
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-      } else {
-        res.send(JSON.stringify(messages));
-      }
-    });
-  });
-};
+  // *Creates a new tripList
+//   app.post("/api/tripList", function(req, res) {
+//     // Assigning request body to a pre built object to interface with mongoose
+//     const newtripList = {
+//       userId: req.body.userId,
+//       name: req.body.name,
+//       tripListName: req.body.tripListName,
+//       location: req.body.location,
+//       createdAt: req.body.createdAt,
+//     };
+//     console.log(tripList);
+//     // Mongoose trip list creation
+//     tripList.create(newtripList, function(err, post) {
+//       if (err) {
+//         console.log(err);
+//         res.sendStatus(500);
+//       } else {
+//         const tripListId = post._id;
+//         // Finds sender and adds triplistId to their object
+//         User.findOneAndUpdate(
+//           {
+//             _id: newtripList.userId,
+//           },
+//           { $push: { tripList: tripListId } },
+//           function(err) {
+//             if (err) {
+//               res.sendStatus(500);
+//               console.log(err);
+//             } else {
+//               // Finds recipient and adds tripListId to their object
+//               User.findOneAndUpdate(
+//                 {
+//                   _id: newtripList.tripListId,
+//                 },
+//                 { $push: { tripList: tripListId } },
+//                 function(err) {
+//                   if (err) {
+//                     res.sendStatus(500);
+//                     console.log(err);
+//                   } else {
+//                     console.log("Trip List successfully added!");
+//                     res.sendStatus(200);
+//                   }
+//                 }
+//               );
+//             }
+//           }
+//         );
+//       }
+//     });
+//   });
+//   // *Finds all recieved trip list by id
+//   app.get("/api/messages/inbox/:id", function(req, res) {
+//     const user = req.params.id;
+//     const find = tripList.find({ tripListId: user }).sort({ createdAt: -1 });
+//     find.exec(function(err, tripList) {
+//       if (err) {
+//         console.log(err);
+//         res.sendStatus(500);
+//       } else {
+//         console.log("Received request for inbox.");
+//         console.log(tripList);
+//         res.send(JSON.stringify(tripList));
+//       }
+//     });
+//   });
+//   // *Finds all sent tripList by id
+//   app.get("/api/tripList/outbox/:id", function(req, res) {
+//     const user = req.params.id;
+//     const find = tripList.find({ userId: user }).sort({ createdAt: -1 });
+//     find.exec(function(err, tripList) {
+//       if (err) {
+//         console.log(err);
+//         res.sendStatus(500);
+//       } else {
+//         res.send(JSON.stringify(tripList);
+//       }
+//     });
+//   });
+// };
