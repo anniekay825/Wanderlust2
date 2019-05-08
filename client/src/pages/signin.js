@@ -1,19 +1,60 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+
 import "../App.css";
 
 function Signin() {
   return (
 
 <div>
-<div class="nav-wrapper">
-  <ul class="right hide-on-med-and-down">
-    <li><a href="#" title="home"><i class="material-icons">home</i></a></li>
-    <li><a href="#" title="maps"><i class="material-icons">explore</i></a></li>
-    <li><a href="#" title="weather"><i class="material-icons">beach_access</i></a></li>
-    <li><a href="" title="my account"><i class="material-icons">account_circle</i></a></li>
-  </ul>
-  </div>
+  <nav>
+    <div class="nav-wrapper">
+      <ul class="right hide-on-med-and-down">
+      <li><a href="#" title="home"><i class="material-icons">home</i></a></li>
+      <li><a href="#" title="maps"><i class="material-icons">explore</i></a></li>
+      <li><a href="#" title="weather"><i class="material-icons">beach_access</i></a></li>
+      <li><a href="#" title="my account"><i class="material-icons">account_circle</i></a></li>
+       </ul>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="parallax"><img src="images/background3.jpg" alt="Awesome Travel Photo"></img></div>
+            </div>
+            <h1 class="header center teal-text text-lighten-2"><strong>Welcome Bäck</strong></h1>
+
+        </div>
+    </div>
+
+  <form class="containerForm">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" type="email" class="validate" />
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">security</i>
+                            <input id="password" type="password" class="validate" />
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <button id="signup" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </form>
 
  <footer class="page-footer">
         <div class="container">
