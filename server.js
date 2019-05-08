@@ -12,10 +12,10 @@ require("./services/passport");
 require("./routes/authRoutes")(app);
 
 // Set the express-session secret key to the CookieKey env variable
-const sessionKey = process.env.CookieKey;
+// const sessionKey = process.env.CookieKey;
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const secret = process.env.SESSION_SECRET || "testsecret";
+const secret = process.env.ClientSecret || "testsecret";
 // Define middleware here
 app.use(
   express.urlencoded({
@@ -58,16 +58,16 @@ db.once("open", function() {
 });
 
 const hour = 36000000;
+//Middleware
 app.use(
   session({
-    secret: sessionKey,
+    secret: secret,
+    resave: true,
+    saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie: { maxAge: hour, sameSite: true },
   })
 );
-
-// Middleware
-app.use(session({ secret: secret, resave: false, saveUninitialized: true }));
 
 // Define API routes here
 require("./routes/api-routes.js")(app);

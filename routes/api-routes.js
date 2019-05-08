@@ -209,6 +209,8 @@ module.exports = function(app) {
       });
     }
   });
+};
+
   // *Creates a new tripList
 //   app.post("/api/tripList", function(req, res) {
 //     // Assigning request body to a pre built object to interface with mongoose
