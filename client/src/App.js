@@ -1,10 +1,10 @@
+
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "./App.css";
 import Signin from './pages/signin';
 import Signup from './pages/signup';
 import Home from './pages/home';
-
 
 class App extends Component {
   render() {
