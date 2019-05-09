@@ -20,6 +20,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@material-ui/core": "^4.0.0-beta.1",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
     "connect-mongo": "^2.0.3",
@@ -29,6 +30,7 @@
     "express-session": "^1.16.1",
     "heroku": "^7.24.3",
     "if-env": "^1.0.4",
+    "material-ui": "^0.20.2",
     "mdbreact": "^4.13.0",
     "mongo": "^0.1.0",
     "mongoose": "^5.5.6",

@@ -4,9 +4,14 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "react": "^16.6.3",
+    "install": "^0.12.2",
+    "material-ui": "^0.20.2",
+    "npm": "^6.9.0",
+    "react": "^16.8.6",
     "react-dom": "^16.6.3",
-    "react-scripts": "^2.1.1"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^2.1.8",
+    "tar": "^4.4.8"
   },
   "scripts": {
     "start": "react-scripts start",
