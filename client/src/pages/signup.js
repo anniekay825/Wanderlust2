@@ -61,15 +61,6 @@ function Signup() {
                     </div>
                 </label>
 
-                <select>
-                    <div class="input-field col s6">
-                    <option value="grapefruit">Grapefruit</option>
-                    <option value="lime">Lime</option>
-                    <option selected value="coconut">Coconut</option>
-                    <option value="mango">Mango</option>
-                    </div>
-                </select>
-
                 <button id="signup" class="btn waves-effect waves-light" type="submit" name="action" >Submit
                     <i class="material-icons right">send</i>
                 </button>
@@ -86,7 +77,7 @@ function Signup() {
                     <p class="text-lighten-4">Wänderlust is built using React, Express, Node, MongoDB, Materialize, and
                         Axios. </p>
                     <p><a href="https://github.com/anniekay825/Wanderlust2" target="_blank"><img id="github"
-                                src="../public/images/PNG/GitHub-Mark-64px.png"></img></a></p>
+                                src="../images/PNG/GitHub-Mark-64px.png"></img></a></p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h4>Links</h4>
