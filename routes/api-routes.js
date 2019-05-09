@@ -1,10 +1,8 @@
 const User = require("../models/User");
 const Trip = require("../models/Trip");
-// const tripList = require("../models/tripList");
 const bcrypt = require("bcrypt");
 
 module.exports = function(app) {
-  // TODO: Add security layer to authorize post request, perhaps captcha?
   // * Adds new user to db
   app.post("/api/users", function(req, res) {
     // Searches db for input email
@@ -68,9 +66,8 @@ module.exports = function(app) {
             }
             // If good, assign session and send code 200
             if (result) {
-              req.session.user = user._id;
-              req.session.loc = user.zip;
-              req.session.name = user.name;
+              req.session.email = user.email;
+              req.session.password = user.password;
               console.log(req.session.user);
               res.sendStatus(200);
             }
@@ -82,9 +79,11 @@ module.exports = function(app) {
   // * Updates user profile
   app.put("/api/users", function(req, res) {
     const userUpdate = {
+      googleID: req.body.googleID,
       name: req.body.name,
       email: req.body.email,
-      zip: req.body.zip,
+      password: req.body.password,
+      updates: req.body.updates
     };
     if (!req.session.user) {
       res.sendStatus(401);
@@ -93,7 +92,7 @@ module.exports = function(app) {
       if (
         userUpdate.name === undefined ||
         userUpdate.email === undefined ||
-        userUpdate.zip === undefined
+        userUpdate.password === undefined
       ) {
         console.log("Empty data!");
         res.sendStatus(401);
@@ -211,83 +210,3 @@ module.exports = function(app) {
   });
 };
 
-  // *Creates a new tripList
-//   app.post("/api/tripList", function(req, res) {
-//     // Assigning request body to a pre built object to interface with mongoose
-//     const newtripList = {
-//       userId: req.body.userId,
-//       name: req.body.name,
-//       tripListName: req.body.tripListName,
-//       location: req.body.location,
-//       createdAt: req.body.createdAt,
-//     };
-//     console.log(tripList);
-//     // Mongoose trip list creation
-//     tripList.create(newtripList, function(err, post) {
-//       if (err) {
-//         console.log(err);
-//         res.sendStatus(500);
-//       } else {
-//         const tripListId = post._id;
-//         // Finds sender and adds triplistId to their object
-//         User.findOneAndUpdate(
-//           {
-//             _id: newtripList.userId,
-//           },
-//           { $push: { tripList: tripListId } },
-//           function(err) {
-//             if (err) {
-//               res.sendStatus(500);
-//               console.log(err);
-//             } else {
-//               // Finds recipient and adds tripListId to their object
-//               User.findOneAndUpdate(
-//                 {
-//                   _id: newtripList.tripListId,
-//                 },
-//                 { $push: { tripList: tripListId } },
-//                 function(err) {
-//                   if (err) {
-//                     res.sendStatus(500);
-//                     console.log(err);
-//                   } else {
-//                     console.log("Trip List successfully added!");
-//                     res.sendStatus(200);
-//                   }
-//                 }
-//               );
-//             }
-//           }
-//         );
-//       }
-//     });
-//   });
-//   // *Finds all recieved trip list by id
-//   app.get("/api/messages/inbox/:id", function(req, res) {
-//     const user = req.params.id;
-//     const find = tripList.find({ tripListId: user }).sort({ createdAt: -1 });
-//     find.exec(function(err, tripList) {
-//       if (err) {
-//         console.log(err);
-//         res.sendStatus(500);
-//       } else {
-//         console.log("Received request for inbox.");
-//         console.log(tripList);
-//         res.send(JSON.stringify(tripList));
-//       }
-//     });
-//   });
-//   // *Finds all sent tripList by id
-//   app.get("/api/tripList/outbox/:id", function(req, res) {
-//     const user = req.params.id;
-//     const find = tripList.find({ userId: user }).sort({ createdAt: -1 });
-//     find.exec(function(err, tripList) {
-//       if (err) {
-//         console.log(err);
-//         res.sendStatus(500);
-//       } else {
-//         res.send(JSON.stringify(tripList);
-//       }
-//     });
-//   });
-// };

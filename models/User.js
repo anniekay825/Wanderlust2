@@ -25,10 +25,6 @@ const UserSchema = new Schema({
   updates: {
     type: Boolean,
       unique: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now(),
   }
 });
 
