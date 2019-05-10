@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 import "../App.css";
 
 function Home() {
@@ -9,10 +9,21 @@ function Home() {
 <nav>
 <div class="nav-wrapper">
   <ul class="right hide-on-med-and-down">
-    <li><a href="#" title="home"><i class="material-icons">home</i></a></li>
+    <li className="nav-item">
+       <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+       <i class="material-icons"> home</i>
+       </Link>
+     </li>
+
     <li><a href="#" title="maps"><i class="material-icons">explore</i></a></li>
     <li><a href="#" title="weather"><i class="material-icons">beach_access</i></a></li>
-    <li><a href="" title="my account"><i class="material-icons">account_circle</i></a></li>
+    
+
+    <li className="nav-item">
+       <Link to="/signin" className={window.location.pathname === "/signin" ? "nav-link active" : "nav-link"}>
+       <i class="material-icons"> account_circle</i>
+       </Link>
+     </li>
   </ul>
 </div>
 </nav>
@@ -28,7 +39,11 @@ function Home() {
           </div>
           <div class="row center">
             <a href="#LearnMore" id="download-button" class="btn-large waves-effect waves-light teal lighten-3">Learn More</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-2">Sign-Up</a>
+            {/* <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-2">Sign-Up</a> */}
+
+              <Link id="submits" to="/signup" className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}>
+                    SIGN UP </Link>
+          
           </div>
         </div>
       </div> 
@@ -110,6 +125,9 @@ function Home() {
       <div id="LearnMore">
         <h4>Wänderlust is more than just a website.  It's a state of mind.  Those of us that love to travel are always wanting to experience a new place, learn new things, and meet new people.  This site gives you the chance to do all of that - and more.  It doesn't matter if you want to visit the local Zoo or Zimbabwe, exploring the world around you expands your mind and soul.  &nbsp;<a class="highlight">Where do you want to go?</a></h4>
       </div>
+      <br></br>
+      <Link id="submits" to="/signup" className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}>
+                    SIGN UP </Link>
       </div>
 
       <footer class="page-footer">
@@ -118,7 +136,7 @@ function Home() {
      <div class="col l6 s12">
        <h4>Site Contents</h4>
        <p class="text-lighten-4">Wänderlust is built using React, Express, Node, MongoDB, Materialize, and Axios.  </p>
-       <p><a href="https://github.com/ATATE13/Wanderlust_2.0" target="_blank"><img id="github" src="../images/PNG/GitHub-Mark-64px.png"></img></a></p>
+       <p><a href="https://github.com/anniekay825/Wanderlust2" target="_blank"><img id="github" src="../../images/PNG/GitHub-Mark-64px.png"></img></a></p>
      </div>
      <div class="col l4 offset-l2 s12">
        <h4>Links</h4>

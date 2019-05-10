@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 
-function Signup() {
+function Dashboard() {
   return (
 
 <div>
-  <nav>
-  <div class="nav-wrapper">
-    <ul class="right hide-on-med-and-down">
-    <li className="nav-item">
+    <nav>
+        <div class="nav-wrapper">
+            <ul class="right hide-on-med-and-down">
+            <li className="nav-item">
        <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
        <i class="material-icons"> home</i>
        </Link>
@@ -21,17 +21,16 @@ function Signup() {
        <i class="material-icons"> account_circle</i>
        </Link>
      </li>
-    </ul>
-    </div>
-  </nav>
+            </ul>
+        </div>
+    </nav>
 
-  <div id="index-banner" class="parallax-container">
+    <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="parallax"><img src="images/background3.jpg" alt="Awesome Travel Photo"></img></div>
             </div>
-            <h1 class="header center teal-text text-lighten-2"><strong>Wänderlust</strong></h1>
-
+            <h1 class="header center teal-text text-lighten-2"><strong>Wänderlust & You</strong></h1>
         </div>
     </div>
 
@@ -39,52 +38,31 @@ function Signup() {
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="yourname" type="text" class="validate" />
-                        <label for="yourname">Your Name</label>
+                    <div class="col s6">
+                        <h6 id="title">Hi Kathleen!</h6>
                     </div>
+                    
+
+                    <div class="col s12">
+                        <h4>Let's Plan a Trip!</h4>
+                            <ul class="tabs">
+                                <li class="tab col s3"><a class="active" href="#test1">Pick a Place</a></li>
+                                <li class="tab col s3"><a href="#test2">Budget & Plan</a></li>
+                                <li class="tab col s3 disabled"><a href="#test3">Meet Others</a></li>
+                                <li class="tab col s3"><a href="#test4">Get Packing!</a></li>
+                            </ul>
+                     
+                        <img src="../images/worldmapFR.png" id="mainmapFR" />
+
+                    </div>
+
+                    <div class="col s12">
+                    <br></br>
+                        <Link id="submits" to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+                        LOGOUT </Link>
+                    </div>
+
                 </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">email</i>
-                        <input id="email" type="email" class="validate" />
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">security</i>
-                        <input id="password" type="password" class="validate" />
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-
-                <label>
-                    <div class="input-field col s6">
-                        <input type="checkbox" class="filled-in" checked="checked" />
-                        <span>Yes, I want to stay in touch!</span>
-                    </div>
-                </label>
-
-                <select>
-                    <div class="input-field col s6">
-                    <option value="grapefruit">Grapefruit</option>
-                    <option value="lime">Lime</option>
-                    <option selected value="coconut">Coconut</option>
-                    <option value="mango">Mango</option>
-                    </div>
-                </select>
-
-                <Link id="submits" to="/dashboard" className={window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}>
-                    SUBMIT </Link>
-
-                {/* <button id="signup" class="btn waves-effect waves-light" type="submit" name="action" >Submit
-                    <i class="material-icons right">send</i>
-                </button> */}
-                <br></br>
             </form>
         </div>
     </div>
@@ -95,7 +73,7 @@ function Signup() {
             <div class="row">
                 <div class="col l6 s12">
                     <h4>Site Contents</h4>
-                    <p class="text-lighten-4">Wänderlust is built using React, Express, Node, MongoDB, Materialize, and
+                    <p class="text-lighten-4">Wänderlust is built alledgely using React, Express, Node, MongoDB, Materialize, and
                         Axios. </p>
                     <p><a href="https://github.com/anniekay825/Wanderlust2" target="_blank"><img id="github"
                                 src="../../images/PNG/GitHub-Mark-64px.png"></img></a></p>
@@ -124,4 +102,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Dashboard;

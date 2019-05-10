@@ -5,6 +5,7 @@ import "./App.css";
 import Signin from './pages/signin';
 import Signup from './pages/signup';
 import Home from './pages/home';
+import Dashboard from './pages/dashboard';
 
 class App extends Component {
   render() {
@@ -15,8 +16,10 @@ class App extends Component {
             <Router basename={`${process.env.PUBLIC_URL}`}>
               <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
                 <Route exact path="/signin" component={Signin} />
                 <Route exact path="/signup" component={Signup} />
+                <Route exact path="/dashboard" component={Dashboard} />
                 {/* <Route component={Search} /> */}
               </Switch>
             </Router>

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 import "../App.css";
 
 function Signin() {
@@ -9,10 +9,18 @@ function Signin() {
   <nav>
     <div class="nav-wrapper">
       <ul class="right hide-on-med-and-down">
-      <li><a href="#" title="home"><i class="material-icons">home</i></a></li>
+      <li className="nav-item">
+       <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
+       <i class="material-icons"> home</i>
+       </Link>
+     </li>
       <li><a href="#" title="maps"><i class="material-icons">explore</i></a></li>
       <li><a href="#" title="weather"><i class="material-icons">beach_access</i></a></li>
-      <li><a href="#" title="my account"><i class="material-icons">account_circle</i></a></li>
+      <li className="nav-item">
+       <Link to="/signin" className={window.location.pathname === "/signin" ? "nav-link active" : "nav-link"}>
+       <i class="material-icons"> account_circle</i>
+       </Link>
+     </li>
        </ul>
     </div>
   </nav>
@@ -48,9 +56,9 @@ function Signin() {
                         </div>
                     </div>
 
-                    <button id="signup" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <Link id="submits" to="/dashboard" className={window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"}>
+                    SUBMIT </Link>
+
                 </div>
             </form>
         </div>
@@ -64,7 +72,7 @@ function Signin() {
                     <p class="text-lighten-4">Wänderlust is built using React, Express, Node, MongoDB, Materialize, and
                         Axios. </p>
                     <p><a href="https://github.com/anniekay825/Wanderlust2" target="_blank"><img id="github"
-                                src="../../public/images/PNG/GitHub-Mark-64px.png"></img></a></p>
+                                src="../../images/PNG/GitHub-Mark-64px.png"></img></a></p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h4>Links</h4>
