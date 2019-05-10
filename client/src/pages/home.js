@@ -81,7 +81,7 @@ function Home() {
 
         <div class="col s12 m2">
           <div class="icon-block" class="containerAB">
-            <h2 class="center teal-text"><img src="../images/noun_language_1714005.png" class="image"></img></h2>
+            <h2 class="center teal-text"><img src="../images/noun_Language_1714005.png" class="image"></img></h2>
             <div class="middle">
             <div class="text">Learn a Language</div>
             </div>
