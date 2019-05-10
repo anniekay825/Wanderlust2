@@ -39,12 +39,14 @@ https://stormy-shore-36096.herokuapp.com/
 
 ## <a name="screenshots"></a> Screenshots
 Images of Wanderlust2 site
-![Image of site header](images/readme-min.png)
-![Image of input info](images/readme2-min.png)
-![Image of results](images/readme3-min.png)
-![Image of reviews](images/readme4-min.png)
-![Image of reviews](images/readme5-min.png)
-
+![Image of top of the site](client/build/images/Readme1.png)
+![Image of middle of the site](client/build/images/Readme2.png)
+![Image of bottom of the site](client/build/images/Readme3.png)
+![Image of signup page](client/build/images/Readme4.png)
+![Image of signup input](client/build/images/Readme5.png)
+![Image of signin page](client/build/images/Readme6.png)
+![Image of user dashboard](client/build/images/Readme7.png)
+![Image of logout](client/build/images/Readme8.png)
 
 ## <a name="technologies-used"></a> Technologies used to create the app
 <li>React (https://reactjs.org/)</li>
